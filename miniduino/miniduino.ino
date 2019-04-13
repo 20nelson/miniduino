@@ -1,18 +1,46 @@
 #include <Servo.h>
-
 #include <Arduino_JSON.h>
 
-// buttons
+// Buttons (updated automatically)
 boolean aButton = false;
 boolean bButton = false;
 boolean xButton = false;
 boolean yButton = false;
 
-// axes
+// Axes (range from -1.0 to 1.0, updated automatically)
 double xAxis = 0.0;
 double yAxis = 0.0;
 
-// internals
+// Declare variables here:
+
+void robotInit() {
+  // runs when Arduino boots, use instead of setup:
+  // example: servo.attach(x);
+  
+}
+
+void disabledInit() {
+  // runs when robot changes to disabled:
+  
+}
+
+void disabledLoop() {
+  // runs periodically when disabled:
+  // example: servo.write(90);
+}
+
+void enabledInit() {
+  // runs when robot changes to enabled:
+  
+}
+
+void enabledLoop() {
+  // runs periodically when enabled:
+  // example: servo.write(mapDouble(yAxis,-1.0,1.0,10.0,170.0));
+  
+}
+
+// DO NOT MODIFY BELOW THIS POINT
 unsigned long lastControlPacket = -10000;
 uint8_t packet[3];
 boolean disabled = false;
@@ -63,35 +91,4 @@ double byteToDouble(uint8_t b) {
 
 double mapDouble(double x, double in_min, double in_max, double out_min, double out_max) {
  return (double)(x - in_min) * (out_max - out_min) / (double)(in_max - in_min) + out_min;
-}
-
-// MODIFY BELOW THIS POINT
-
-// Declare variables here:
-
-void robotInit() {
-  // runs when Arduino boots, use instead of setup:
-  // example: servo.attach(x);
-  
-}
-
-void disabledInit() {
-  // runs when robot changes to disabled:
-  
-}
-
-void disabledLoop() {
-  // runs periodically when disabled:
-  // example: servo.write(90);
-}
-
-void enabledInit() {
-  // runs when robot changes to enabled:
-  
-}
-
-void enabledLoop() {
-  // runs periodically when enabled:
-  // example: servo.write(mapDouble(yAxis,-1.0,1.0,10.0,170.0));
-  
 }
